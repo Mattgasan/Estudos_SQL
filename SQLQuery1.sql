@@ -2,12 +2,13 @@
 CREATE DATABASE IMOVEIS
 go
 USE IMOVEIS
-go-- Criando as  tabelasCREATE TABLE Bairro (
+go
+-- Criando as  tabelas
+CREATE TABLE Bairro
  cd_Bairro int NOT NULL,
  cd_Cidade int NOT NULL,
  sg_Estado char(2) NOT NULL,
  nm_Bairro varchar(20) NULL
-)
 go
 CREATE TABLE Cidade (
  cd_Cidade int NOT NULL,
@@ -63,7 +64,7 @@ CREATE TABLE Oferta (
  dt_Oferta datetime NULL
 )
 go
-CREATE TABLE Vendedor (
+CREATE TABLE Vendedor
  cd_Vendedor int NOT NULL,
  nm_Vendedor varchar(40) NULL,
  ds_Endereco varchar(40) NULL,
@@ -73,8 +74,9 @@ CREATE TABLE Vendedor (
  sg_Estado char(2) NULL,
  cd_Telefone varchar(20) NULL,
  ds_Email varchar(80) NULL
-)
-go-- Criando as chaves primarias/PrimaryALTER TABLE Bairro
+go
+-- Criando as chaves primarias/Primary
+ALTER TABLE Bairro
  ADD PRIMARY KEY (cd_Bairro, cd_Cidade, sg_Estado)
 go
 ALTER TABLE Cidade
@@ -97,7 +99,9 @@ ALTER TABLE Oferta
 go
 ALTER TABLE Vendedor
  ADD PRIMARY KEY (cd_Vendedor)
-go-- Criando as chaves Estrangeiras/Foreing keyALTER TABLE Bairro
+go
+-- Criando as chaves Estrangeiras/Foreing key
+ALTER TABLE Bairro
  ADD FOREIGN KEY (cd_Cidade, sg_Estado)
  REFERENCES Cidade
 go
